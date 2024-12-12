@@ -40,30 +40,24 @@ struct student *data_read(const char *file, int *count){
 	*count = 0;
 	struct student *data = NULL;
 
-	printf("count is %d\n", *count);
-
 	if(!file)
 		return data;
 
-	printf("Data file is %s\n", file);
-
 	fd = open(file, O_RDWR, 0600);
 	if(fd < 0){
-		printf("file descriptor is %d\n", fd);
+		printf("Error opening file:  %d\n", fd);
 		return data;
-	}else
-		printf("File descriptor is %d\n", fd);
+	}
+
 	data = (struct student *)malloc(sizeof(struct student));
 	if(!data)
 		goto exit;
 
 	while(1){
 		br = read(fd, data + *count, sizeof(struct student));
-		printf("Read %lu bytes\n", br);
 		if(br != sizeof(struct student))
 			break;
 		(*count)++;
-		printf("count is %d\n", *count);
 		data = (struct student *)realloc( data, sizeof(struct student) * (*count + 1) );
 		if(!data){
 			printf("Realloc failed\n");
