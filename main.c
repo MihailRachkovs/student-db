@@ -22,6 +22,7 @@ int main(){
 	printf("Do ou want to see existing student data?(1/0)\n");
 	scanf("%d",&yn);
 	if(yn == 1){
+		printf("Reading %s\n", file);
 		data = data_read(file, &c);
 		if(!data)
 			printf("Error reading database: %m\n");
@@ -29,10 +30,10 @@ int main(){
 			printf("There are %d students in database: \n", c);
 			data_output(c, data);
 		}
-
+		return 0;
 	}
 
-	printf("Please enter number of students: \n");
+	printf("Please enter number of students: ");
 	scanf("%d", &c);
 
 	s = (struct student *)malloc(sizeof(struct student)*c);
