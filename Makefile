@@ -9,7 +9,7 @@ $(BIN): common.h $(OBJECTS)
 	$(CC) $(OBJECTS) -o $@
 
 clean:
-	rm$(BIN) $(OBJECTS)
+	rm $(BIN) $(OBJECTS)
 
 help:
 	@echo "Please run make $(BIN) or just make"
