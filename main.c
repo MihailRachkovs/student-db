@@ -5,7 +5,6 @@
 
 #include"common.h"
 
-
 void data_input(int count, struct student *s);
 void data_output(int count, struct student *s);
 int data_save(int count, struct student *s, const char *file);
@@ -19,7 +18,7 @@ int main(){
 	struct student *data;
 	int err = 0;
 	
-	printf("Do you want to see existing student data?(1/0)\n");
+	printf("Do you want to read existing student data?(1/0)\n");
 	scanf("%d",&yn);
 	if(yn == 1){
 		printf("Reading %s\n", file);
